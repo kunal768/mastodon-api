@@ -66,6 +66,7 @@ func (s svc) FetchPosts(request FetchPosts) (FetchPostsResponse, error) {
 		converted := StatusHistory{
 			Content:   sh.Content,
 			CreatedAt: sh.CreatedAt,
+			StatusId:  string(sh.ID),
 		}
 		ans.History = append(ans.History, converted)
 	}
