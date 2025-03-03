@@ -25,4 +25,5 @@ type FetchPostsResponse struct {
 type StatusHistory struct {
 	Content   string    `json:"content"`
 	CreatedAt time.Time `json:"created_at"`
+	StatusId  string    `json:"status_id"`
 }
