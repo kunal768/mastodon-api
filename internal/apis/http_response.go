@@ -2,10 +2,13 @@ package apis
 
 import (
 	"net/http"
+	"os"
 	"strconv"
 
 	"mastadon-api/internal/client/mastadon"
 	"mastadon-api/internal/services"
+
+	"github.com/gin-contrib/cors"
 
 	"github.com/gin-gonic/gin"
 )
@@ -98,6 +101,13 @@ func fetchPostsHandler(service services.Service) gin.HandlerFunc {
 
 // RegisterHandlers registers all handlers with the router
 func RegisterHandlers(router *gin.Engine, service services.Service) {
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{os.Getenv("ALLOWED_ORIGIN")},
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Content-Type", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 	router.POST("/posts", createPostHandler(service))
 	router.DELETE("/posts/:id", deletePostHandler(service))
 	router.GET("/posts", fetchPostsHandler(service))
