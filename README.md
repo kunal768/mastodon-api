@@ -26,7 +26,10 @@ The Go server file is located at `cmd/master/main.go`. To run the server:
 ```zsh
 curl --location 'https://mastodon.social/api/v1/accounts/lookup?acct=<accountname>'
 ```
-8. Once the .env file is set up in the `./cmd/master` Run the command: `go run main.go`
+8. Once the .env file is set up in the `./cmd/master` run the below command opening shell in the same directory :
+```bash
+go run main.go
+```
 
    
 
@@ -41,11 +44,10 @@ curl --location 'https://mastodon.social/api/v1/accounts/lookup?acct=<accountnam
 
 To set up and run the Next.js client:
 
-1. Open another shell and run below command:
-
-   ```zsh
-   npm install && npm run dev
-   ```
+1. Open another shell and run below command : 
+```bash
+npm install && npm run dev
+```
 
 <br />
 <br />
