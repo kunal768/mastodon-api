@@ -19,6 +19,7 @@ The Go server file is located at `cmd/master/main.go`. To run the server:
   CLIENT_SECRET=your_client_secret
   ACCESS_TOKEN=your_access_token
   USER_ID=your_user_id
+  ALLOWED_ORIGIN=your_client_url_with_port
 ```
 
 7. To get value for `USER_ID` use below curl with your <b> Mastodon Social Acccount name </b> and copy the `id` value from `JSON` response
@@ -26,6 +27,15 @@ The Go server file is located at `cmd/master/main.go`. To run the server:
 curl --location 'https://mastodon.social/api/v1/accounts/lookup?acct=<accountname>'
 ```
 8. Once the .env file is set up in the `./cmd/master` Run the command: `go run main.go`
+
+   
+
+>[!IMPORTANT]  
+>to avoid CORS error update `ALLOWED_ORIGIN` variable in server .env with IP from where below client will be hosted
+
+
+<br />
+<br />
 
 ## Client Setup
 
@@ -37,6 +47,7 @@ To set up and run the Next.js client:
    npm install && npm run dev
    ```
 
-Congratulations you're good to go !
+<br />
+<br />
 
-Made with ❤️  
+Congratulations you're good to go ! Made with ❤️  
